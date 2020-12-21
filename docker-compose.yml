@@ -9,10 +9,15 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - db
-  db:
+      - tuskboard_db
+  tuskboard_db:
     image: postgres:13.1
     environment:
       - POSTGRES_DB=tuskboard
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=test
+    volumes:
+      - tuskboard_postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  tuskboard_postgres_data:

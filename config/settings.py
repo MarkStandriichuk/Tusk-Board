@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # Local
     'api.apps.ApiConfig',
+    'pages.apps.PagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +86,7 @@ DATABASES = {
         'NAME': 'tuskboard',
         'USER': 'postgres',
         'PASSWORD': 'test',
-        'HOST': 'db',
+        'HOST': 'tuskboard_db',
         'PORT': '5432',
     }
 }
